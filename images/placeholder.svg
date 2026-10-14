@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+<rect width="1280" height="720" fill="#c9d1e0"/>
+<path d="M0 560 L330 330 L560 500 L800 250 L1280 600 V720 H0Z" fill="#aab6cc"/>
+<text x="640" y="370" font-family="sans-serif" font-size="44" fill="#3b4558" text-anchor="middle">Replace with your screenshot</text>
+</svg>
