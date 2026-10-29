@@ -26,50 +26,96 @@
     <div><dt>Timeframe</dt><dd>6 weeks</dd></div>
   </dl>
 
-  <!-- Links: change the text and addresses, or delete one -->
   <div class="actions">
     <a class="button" href="https://k-dawgg-code.itch.io/burger-2-electric-boogaloo-fully-loaded">Play on itch.io</a>
     <a class="button" href="https://github.com/CarltonHague/Burger_Bros">View code on GitHub</a>
   </div>
 
-  <!-- Main image. To use a YouTube video instead, replace the img line with:
-       <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Gameplay video" allowfullscreen loading="lazy"></iframe></div>
-       For a video file in the images folder use: <video src="../images/demo.mp4" controls muted playsinline></video> -->
   <div class="video">
-  <iframe
-    width="1280" height="720"
-    src="https://www.youtube.com/embed/oDZpkmw3TWg?autoplay=1&mute=1&loop=1&playlist=oDZpkmw3TWg&playsinline=1"
-    title="Gameplay trailer"
-    frameborder="0"
-    allow="autoplay; encrypted-media; picture-in-picture"
-    allowfullscreen
-    loading="lazy">
-  </iframe>
-</div>
+    <iframe
+      width="1280" height="720"
+      src="https://www.youtube.com/embed/oDZpkmw3TWg?autoplay=1&mute=1&loop=1&playlist=oDZpkmw3TWg&playsinline=1"
+      title="Gameplay trailer"
+      frameborder="0"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
 
   <section class="prose">
     <h2>About the project</h2>
-    <p>The game was a first-year group project, made in Unity to fit a brief for a mascot platformer with two levels, enemies and collectables. It was showcased at the university’s annual games showcase for our year group.</p>
+    <p>The game was a first-year group project, made in Unity to fit a brief for a mascot platformer with two levels, enemies and collectables. It was showcased at the university’s annual games show.</p>
     <h2>What I worked on</h2>
     <ul>
-      <li>I was responsible for implementing most of the player systems, including movement, jumping, dashing and grappling. I also implemented the animations for the player and enemies, and created a shader in Unity Shader Graph for the moving oil.</li>
-      <li>One of the main challenges on this project was implementing the grappling and dashing mechanics. The designers wanted the characters to be able to air dash through gaps and grapple to specific points around the level. To achieve this, I used Unity features such as IEnumerators and coroutines alongside a distance joint to build the movement the designers needed.</li>
-      <li>I learned a lot from this project, as it was my first time using Unity and working in a team alongside artists and designers. I took on the role of Scrum master for the group, leading our weekly Scrum sessions and helping keep the project on task within a limited timeframe.</li>
+      <li>I was responsible for implementing most of the player systems, including movement, jumping, dashing and grappling. I also implemented the animations for the player and enemies, and created a lot of the gameplay feel.</li>
+      <li>One of the main challenges on this project was implementing the grappling and dashing mechanics. The designers wanted the characters to be able to air dash through gaps and grapple to specific points, and tuning that movement made a big difference to the game’s flow.</li>
+      <li>I learned a lot from this project, as it was my first time using Unity and working in a team alongside artists and designers. I took on the role of Scrum master for the group, leading our weekly meetings and keeping the project on schedule.</li>
     </ul>
   </section>
 
   <section>
     <h2>Screenshots</h2>
     <div class="gallery">
-      <img src="../images/Screenshot012.jpg" alt="Describe this screenshot" width="1280" height="720" loading="lazy">
-      <img src="../images/Screenshot009.jpg" alt="Describe this screenshot" width="1280" height="720" loading="lazy">
-      <img src="../images/Screenshot010.jpg" alt="Describe this screenshot" width="1280" height="720" loading="lazy">
+      <button class="gallery-item" type="button" data-full="../images/Screenshot012.jpg" aria-label="Open larger view of screenshot 1">
+        <img src="../images/Screenshot012.jpg" alt="Burger Bros gameplay screenshot" width="1280" height="720" loading="lazy">
+      </button>
+      <button class="gallery-item" type="button" data-full="../images/Screenshot009.jpg" aria-label="Open larger view of screenshot 2">
+        <img src="../images/Screenshot009.jpg" alt="Burger Bros level screenshot" width="1280" height="720" loading="lazy">
+      </button>
+      <button class="gallery-item" type="button" data-full="../images/Screenshot010.jpg" aria-label="Open larger view of screenshot 3">
+        <img src="../images/Screenshot010.jpg" alt="Burger Bros character screenshot" width="1280" height="720" loading="lazy">
+      </button>
     </div>
   </section>
 </main>
 
+<div class="lightbox" id="gallery-lightbox" aria-hidden="true">
+  <div class="lightbox-panel">
+    <button class="lightbox-close" type="button" aria-label="Close enlarged screenshot">×</button>
+    <img id="lightbox-image" src="" alt="Enlarged project screenshot">
+  </div>
+</div>
+
 <footer class="site-footer">
   <div class="wrap"><a href="../index.html">Back to all projects</a></div>
 </footer>
+
+<script>
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const closeButton = document.querySelector('.lightbox-close');
+
+  galleryItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      const fullImage = item.dataset.full;
+      lightboxImage.src = fullImage;
+      lightboxImage.alt = item.getAttribute('aria-label') || 'Enlarged project screenshot';
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  closeButton.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+      closeLightbox();
+    }
+  });
+</script>
 </body>
 </html>
