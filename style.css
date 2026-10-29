@@ -99,7 +99,7 @@ main { padding-bottom: 3rem; }
   background: var(--surface); overflow: hidden; cursor: zoom-in;
 }
 .feature-stage img {
-  display: block; width: 100%; height: auto; max-height: 68vh; object-fit: cover;
+  display: block; width: 100%; height: auto; max-height: 58vh; object-fit: cover;
   background: #dfe4ee;
 }
 .gallery-thumbs {
@@ -123,21 +123,58 @@ main { padding-bottom: 3rem; }
 }
 
 .lightbox {
-  position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
-  background: rgba(10, 14, 20, 0.82); padding: 1.5rem; z-index: 1000;
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 14, 20, 0.82);
+  padding: 1.5rem;
+  z-index: 1000;
 }
 .lightbox.is-open { display: flex; }
 .lightbox-panel {
-  position: relative; width: min(75vw, 1000px); max-height: 80vh; display: flex; align-items: center; justify-content: center;
-  background: rgba(255, 255, 255, 0.04); border-radius: var(--radius);
+  position: relative;
+  width: min(92vw, 1200px);
+  max-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius);
 }
 .lightbox-panel img {
-  display: block; max-width: 100%; max-height: 80vh; width: auto; border-radius: var(--radius); object-fit: contain;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 88vh;
+  height: auto;
+  border-radius: var(--radius);
+  object-fit: contain;
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .lightbox-close {
   position: absolute; top: 0.75rem; right: 0.75rem; width: 2.5rem; height: 2.5rem; border: 0;
   border-radius: 999px; background: rgba(10, 14, 20, 0.8); color: #fff; font-size: 1.5rem; cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .gallery-thumbs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .feature-stage img {
+    max-height: 40vh;
+  }
+  .lightbox {
+    padding: 0.75rem;
+  }
+  .lightbox-panel {
+    width: 100%;
+    max-height: 82vh;
+  }
+  .lightbox-panel img {
+    max-height: 82vh;
+  }
 }
 
 /* Footer */
