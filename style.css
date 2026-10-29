@@ -85,27 +85,8 @@ main { padding-bottom: 3rem; }
   font-weight: 600; text-decoration: none;
 }
 .button.secondary { background: transparent; color: var(--accent); }
-.video, .media {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #dfe4ee;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-}
-.video img, .media img,
-.video iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 60vh;
-  object-fit: cover;
-  border-radius: var(--radius);
-}
+.video { aspect-ratio: 16 / 9; }
+.video iframe { width: 100%; height: 100%; border: 0; border-radius: var(--radius); }
 .prose { max-width: 42rem; }
 .prose h2 { margin-top: 2rem; }
 
@@ -116,14 +97,9 @@ main { padding-bottom: 3rem; }
 .feature-stage {
   width: 100%; padding: 0; border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--surface); overflow: hidden; cursor: zoom-in;
-  aspect-ratio: 16 / 9;
 }
 .feature-stage img {
-<<<<<<< HEAD
-  display: block; width: 100%; height: 100%; max-height: 58vh; object-fit: cover;
-=======
   display: block; width: 100%; height: auto; max-height: 58vh; object-fit: cover;
->>>>>>> parent of 58fa2db (Fix wide screenshots so they display more clearly by preserving full image proportions instead of cropping tightly.)
   background: #dfe4ee;
 }
 .gallery-thumbs {
@@ -134,7 +110,6 @@ main { padding-bottom: 3rem; }
   padding: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   background: transparent; cursor: pointer; transition: border-color 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
   opacity: 0.8;
-  aspect-ratio: 16 / 9;
 }
 .thumb:hover, .thumb:focus-visible {
   border-color: var(--accent);
@@ -144,7 +119,7 @@ main { padding-bottom: 3rem; }
   opacity: 1;
 }
 .thumb img {
-  display: block; width: 100%; height: 100%; object-fit: cover;
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
 }
 
 .lightbox {
@@ -189,12 +164,6 @@ main { padding-bottom: 3rem; }
   }
   .feature-stage img {
     max-height: 40vh;
-  }
-  .video, .media {
-    max-height: 42vh;
-  }
-  .video img, .media img {
-    max-height: 42vh;
   }
   .lightbox {
     padding: 0.75rem;
