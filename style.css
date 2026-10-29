@@ -117,7 +117,7 @@ main { padding-bottom: 3rem; }
   background: var(--surface); overflow: hidden; cursor: zoom-in;
 }
 .feature-stage img {
-  display: block; width: 100%; height: auto; max-height: 58vh; object-fit: cover;
+  display: block; width: 100%; height: auto; max-height: 58vh; object-fit: contain;
   background: #dfe4ee;
 }
 .gallery-thumbs {
