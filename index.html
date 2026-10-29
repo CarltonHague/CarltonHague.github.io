@@ -26,7 +26,9 @@
   <h2>Projects</h2>
   <ul class="projects">
     <li class="card">
-      <img src="images/M_1pa4.jpg" alt="Screenshot of Project One" width="1280" height="720" loading="lazy">
+      <div class="card-media">
+        <img class="project-preview" src="images/M_1pa4.jpg" alt="Screenshot of Project One" width="1280" height="720" loading="lazy" data-static="images/M_1pa4.jpg" data-hover="images/M_1pa4.jpg">
+      </div>
       <div class="card-body">
         <h3><a href="projects/project-one.html">Burger Bros</a></h3>
         <p>2d platformer made in 6 weeks as part of a group project</p>
@@ -35,7 +37,9 @@
     </li>
 
     <li class="card">
-      <img src="images/Flappy_Title%20shot.jpg" alt="Flappy Bird title screen" width="1280" height="720" loading="lazy">
+      <div class="card-media">
+        <img class="project-preview" src="images/Flappy_Title%20shot.jpg" alt="Flappy Bird title screen" width="1280" height="720" loading="lazy" data-static="images/Flappy_Title%20shot.jpg" data-hover="Videos/FlappyGif.gif">
+      </div>
       <div class="card-body">
         <h3><a href="projects/project-two.html">Flappy Bird</a></h3>
         <p>Arcade game built in C++ with SFML over 3 weeks in a small team</p>
@@ -44,7 +48,9 @@
     </li>
 
     <li class="card">
-      <img src="images/Space%20invader%20Title.png" alt="Space Invaders title screen" width="1280" height="720" loading="lazy">
+      <div class="card-media">
+        <img class="project-preview" src="images/Space%20invader%20Title.png" alt="Space Invaders title screen" width="1280" height="720" loading="lazy" data-static="images/Space%20invader%20Title.png" data-hover="Videos/Space%20Invader.gif">
+      </div>
       <div class="card-body">
         <h3><a href="projects/project-three.html">Space Invaders</a></h3>
         <p>Classic arcade shooter made in Unity over 3 weeks as a solo project.</p>
@@ -53,6 +59,23 @@
     </li>
   </ul>
 </main>
+
+<script>
+  const previews = document.querySelectorAll('.project-preview');
+
+  previews.forEach((preview) => {
+    const staticSrc = preview.dataset.static || preview.src;
+    const hoverSrc = preview.dataset.hover || preview.src;
+
+    preview.addEventListener('mouseenter', () => {
+      preview.src = hoverSrc;
+    });
+
+    preview.addEventListener('mouseleave', () => {
+      preview.src = staticSrc;
+    });
+  });
+</script>
 
 </body>
 </html>
