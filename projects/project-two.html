@@ -49,16 +49,111 @@
 
   <section>
     <h2>Screenshots</h2>
-    <div class="gallery">
-      <img src="../images/Flappy_Title%20shot.jpg" alt="Flappy Bird clone title screen" width="1280" height="720" loading="lazy">
-      <img src="../images/Flappy%20move%201.jpg" alt="Flappy Bird clone gameplay screenshot" width="1280" height="720" loading="lazy">
-      <img src="../images/flappy%20game%20over%20shot.jpg" alt="Flappy Bird clone game over screen" width="1280" height="720" loading="lazy">
+
+    <div class="gallery-shell">
+      <button class="feature-stage" id="featured-stage" type="button" aria-label="Open enlarged screenshot view">
+        <img id="featured-image" src="../images/Flappy_Title%20shot.jpg" alt="Flappy Bird clone title screen" width="1280" height="720" loading="lazy">
+      </button>
+
+      <div class="gallery-thumbs" aria-label="Project screenshots">
+        <button class="thumb is-active" type="button" data-index="0" aria-label="Show screenshot 1">
+          <img src="../images/Flappy_Title%20shot.jpg" alt="Screenshot 1 thumbnail" width="1280" height="720" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-index="1" aria-label="Show screenshot 2">
+          <img src="../images/Flappy%20move%201.jpg" alt="Screenshot 2 thumbnail" width="1280" height="720" loading="lazy">
+        </button>
+        <button class="thumb" type="button" data-index="2" aria-label="Show screenshot 3">
+          <img src="../images/flappy%20game%20over%20shot.jpg" alt="Screenshot 3 thumbnail" width="1280" height="720" loading="lazy">
+        </button>
+      </div>
     </div>
   </section>
 </main>
 
+<div class="lightbox" id="gallery-lightbox" aria-hidden="true">
+  <div class="lightbox-panel">
+    <button class="lightbox-close" type="button" aria-label="Close enlarged screenshot">×</button>
+    <img id="lightbox-image" src="../images/Flappy_Title%20shot.jpg" alt="Enlarged project screenshot">
+  </div>
+</div>
+
 <footer class="site-footer">
   <div class="wrap"><a href="../index.html">Back to all projects</a></div>
 </footer>
+
+<script>
+  const images = [
+    '../images/Flappy_Title%20shot.jpg',
+    '../images/Flappy%20move%201.jpg',
+    '../images/flappy%20game%20over%20shot.jpg'
+  ];
+
+  const featuredImage = document.getElementById('featured-image');
+  const featuredStage = document.getElementById('featured-stage');
+  const thumbs = document.querySelectorAll('.thumb');
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const closeButton = document.querySelector('.lightbox-close');
+  let activeIndex = 0;
+  let cycleTimer;
+
+  function renderFeatured(index) {
+    activeIndex = index;
+    featuredImage.src = images[index];
+    featuredImage.alt = `Flappy Bird clone screenshot ${index + 1}`;
+
+    thumbs.forEach((thumb, thumbIndex) => {
+      thumb.classList.toggle('is-active', thumbIndex === index);
+    });
+  }
+
+  function nextFeatured() {
+    const nextIndex = (activeIndex + 1) % images.length;
+    renderFeatured(nextIndex);
+  }
+
+  function startCycle() {
+    clearInterval(cycleTimer);
+    cycleTimer = setInterval(nextFeatured, 3500);
+  }
+
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      renderFeatured(Number(thumb.dataset.index));
+      startCycle();
+    });
+  });
+
+  featuredStage.addEventListener('click', () => {
+    lightboxImage.src = images[activeIndex];
+    lightboxImage.alt = `Enlarged Flappy Bird clone screenshot ${activeIndex + 1}`;
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    clearInterval(cycleTimer);
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    startCycle();
+  }
+
+  closeButton.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+      closeLightbox();
+    }
+  });
+
+  renderFeatured(0);
+  startCycle();
+</script>
 </body>
 </html>
