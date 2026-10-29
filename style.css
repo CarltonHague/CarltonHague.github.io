@@ -143,6 +143,28 @@ main { padding-bottom: 3rem; }
   display: block; width: 100%; height: 100%; object-fit: contain;
 }
 
+/* Space Invaders project page media only */
+.project .video--project-three {
+  height: clamp(23rem, 42vw, 40rem);
+  max-height: none;
+}
+.project .video--project-three img {
+  height: 100%;
+  object-fit: contain;
+}
+.project .feature-stage {
+  height: clamp(22rem, 42vw, 38rem);
+  max-height: none;
+}
+.project .feature-stage img,
+.project .thumb img {
+  height: 100%;
+  object-fit: contain;
+}
+.project .thumb {
+  height: clamp(7rem, 16vw, 12rem);
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
@@ -191,6 +213,15 @@ main { padding-bottom: 3rem; }
   }
   .video img, .media img {
     max-height: 42vh;
+  }
+  .project .video--project-three {
+    height: clamp(17rem, 56vw, 22rem);
+  }
+  .project .feature-stage {
+    height: clamp(17rem, 52vw, 24rem);
+  }
+  .project .thumb {
+    height: clamp(5rem, 20vw, 8rem);
   }
   .lightbox {
     padding: 0.75rem;
