@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Colour Changing Space Invaders | Carlton Hague</title>
-  <meta name="description" content="A colour-switching arcade shooter built in Unity over 4 weeks as a solo project.">
+  <title>Space Invaders | Carlton Hague</title>
+  <meta name="description" content="A classic space invaders style game built in Unity over 4 weeks as a solo project.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -16,8 +16,8 @@
 </header>
 
 <main class="wrap project">
-  <h1>Colour Changing Space Invaders</h1>
-  <p class="summary">A classic space invaders-inspired shooter with a colour-switching mechanic, where the player can only damage enemies of the opposite colour and must survive a mothership-style threat.</p>
+  <h1>Space Invaders</h1>
+  <p class="summary">A classic arcade shooter built in Unity over 4 weeks as a solo project, inspired by the original Space Invaders formula.</p>
 
   <dl class="facts">
     <div><dt>Role</dt><dd>Gameplay programmer</dd></div>
@@ -30,20 +30,18 @@
   </div>
 
   <div class="video">
-    <video src="../Videos/Space Invader video.mp4" autoplay muted loop playsinline controls preload="metadata" poster="../images/Space invader Title.png"></video>
+    <video src="../Videos/Space Invader video.mp4" controls muted playsinline poster="../images/Space invader Title.png" preload="metadata"></video>
   </div>
 
   <section class="prose">
     <h2>About the project</h2>
-    <p>This was a solo Unity project built over 4 weeks. It takes the classic space invaders formula and adds a simple but impactful twist: the player can change colour by right-clicking, and only enemies of the opposite colour can be damaged. Matching colours are harmless to the player, so the game becomes a constant balancing act between offence, defence, and positioning.</p>
-    <p>To add extra pressure, I also introduced a mothership-style enemy with unique attack patterns that restrict the player’s movement and force them to react quickly under pressure.</p>
+    <p>This was a solo Unity project built over 4 weeks. I wanted to recreate the feel of a classic Space Invaders experience with responsive movement, wave-based enemy pressure, and a simple but satisfying arcade challenge.</p>
 
     <h2>What I worked on</h2>
     <ul>
-      <li>I built the core shooting, movement, enemy wave, and score systems to recreate the feel of a classic space invaders game.</li>
-      <li>I implemented the colour-switch mechanic, including enemy damage rules, collision logic, and the player’s defensive interactions with matching enemies.</li>
-      <li>I designed and implemented a mothership-style enemy with special attack patterns that disrupt movement and force the player to adapt their strategy.</li>
-      <li>I focused on balancing the gameplay loop so each encounter felt readable, fair, and skill-based while still being fast and satisfying to play.</li>
+      <li>I built the main shooting, movement, and enemy wave systems to recreate the feel of a classic space invaders game.</li>
+      <li>I implemented the enemy behaviour, difficulty progression, and score systems to keep each run engaging and fair.</li>
+      <li>I focused on polishing the gameplay feel so the project was smooth, fast, and fun to play within the 4-week development window.</li>
     </ul>
   </section>
 
@@ -52,7 +50,7 @@
 
     <div class="gallery-shell">
       <button class="feature-stage" id="featured-stage" type="button" aria-label="Open enlarged screenshot view">
-        <img id="featured-image" src="../images/Space invader Title.png" alt="Colour Changing Space Invaders title screen" width="1280" height="720" loading="lazy">
+        <img id="featured-image" src="../images/Space invader Title.png" alt="Space Invaders title screen" width="1280" height="720" loading="lazy">
       </button>
 
       <div class="gallery-thumbs" aria-label="Project screenshots">
@@ -104,7 +102,7 @@
   function renderFeatured(index) {
     activeIndex = index;
     featuredImage.src = images[index];
-    featuredImage.alt = `Colour Changing Space Invaders screenshot ${index + 1}`;
+    featuredImage.alt = `Space Invaders screenshot ${index + 1}`;
 
     thumbs.forEach((thumb, thumbIndex) => {
       thumb.classList.toggle('is-active', thumbIndex === index);
@@ -130,7 +128,7 @@
 
   featuredStage.addEventListener('click', () => {
     lightboxImage.src = images[activeIndex];
-    lightboxImage.alt = `Enlarged Colour Changing Space Invaders screenshot ${activeIndex + 1}`;
+    lightboxImage.alt = `Enlarged Space Invaders screenshot ${activeIndex + 1}`;
     lightbox.classList.add('is-open');
     lightbox.setAttribute('aria-hidden', 'false');
     clearInterval(cycleTimer);
