@@ -85,8 +85,26 @@ main { padding-bottom: 3rem; }
   font-weight: 600; text-decoration: none;
 }
 .button.secondary { background: transparent; color: var(--accent); }
-.video { aspect-ratio: 16 / 9; }
-.video iframe { width: 100%; height: 100%; border: 0; border-radius: var(--radius); }
+.video, .media {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dfe4ee;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.video img, .media img,
+.video iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
 .prose { max-width: 42rem; }
 .prose h2 { margin-top: 2rem; }
 
@@ -164,6 +182,12 @@ main { padding-bottom: 3rem; }
   }
   .feature-stage img {
     max-height: 40vh;
+  }
+  .video, .media {
+    max-height: 42vh;
+  }
+  .video img, .media img {
+    max-height: 42vh;
   }
   .lightbox {
     padding: 0.75rem;
