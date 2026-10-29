@@ -17,7 +17,7 @@
 
 <main class="wrap project">
   <h1>Colour Changing Space Invaders</h1>
-  <p class="summary">A classic space invaders style shooter with a twist: the player can switch colours to damage matching enemies and avoid taking damage from enemies of the same colour.</p>
+  <p class="summary">A classic space invaders-inspired shooter with a colour-switching mechanic, where the player can only damage enemies of the opposite colour and must survive a mothership-style threat.</p>
 
   <dl class="facts">
     <div><dt>Role</dt><dd>Gameplay programmer</dd></div>
@@ -30,18 +30,20 @@
   </div>
 
   <div class="video">
-    <video src="../Videos/Space Invader video.mp4" controls muted playsinline poster="../images/Space invader Title.png" preload="metadata"></video>
+    <video src="../Videos/Space Invader video.mp4" autoplay muted loop playsinline controls preload="metadata" poster="../images/Space invader Title.png"></video>
   </div>
 
   <section class="prose">
     <h2>About the project</h2>
-    <p>This was a solo Unity project built over 4 weeks. I wanted to create a classic space invaders gameplay loop with a new mechanic that added decision-making and depth. The player can change colour with right click, and enemies are only vulnerable when they are the opposite colour to the player. Enemies of the same colour can’t damage the player, which encourages timing, positioning, and careful use of colour switching.</p>
+    <p>This was a solo Unity project built over 4 weeks. It takes the classic space invaders formula and adds a simple but impactful twist: the player can change colour by right-clicking, and only enemies of the opposite colour can be damaged. Matching colours are harmless to the player, so the game becomes a constant balancing act between offence, defence, and positioning.</p>
+    <p>To add extra pressure, I also introduced a mothership-style enemy with unique attack patterns that restrict the player’s movement and force them to react quickly under pressure.</p>
 
     <h2>What I worked on</h2>
     <ul>
-      <li>I built the main shooting, movement, and enemy wave systems to recreate the feel of a classic space invaders game.</li>
-      <li>I implemented the colour mechanic, including colour switching, enemy damage rules, and the player’s defensive interaction with matching enemies.</li>
-      <li>I also focused on polishing the game feel by balancing the enemy patterns, projectile behaviour, and difficulty progression over the full 4-week development period.</li>
+      <li>I built the core shooting, movement, enemy wave, and score systems to recreate the feel of a classic space invaders game.</li>
+      <li>I implemented the colour-switch mechanic, including enemy damage rules, collision logic, and the player’s defensive interactions with matching enemies.</li>
+      <li>I designed and implemented a mothership-style enemy with special attack patterns that disrupt movement and force the player to adapt their strategy.</li>
+      <li>I focused on balancing the gameplay loop so each encounter felt readable, fair, and skill-based while still being fast and satisfying to play.</li>
     </ul>
   </section>
 
