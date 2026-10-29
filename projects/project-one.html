@@ -136,11 +136,13 @@
     lightboxImage.alt = `Enlarged Burger Bros screenshot ${activeIndex + 1}`;
     lightbox.classList.add('is-open');
     lightbox.setAttribute('aria-hidden', 'false');
+    clearInterval(cycleTimer);
   });
 
   function closeLightbox() {
     lightbox.classList.remove('is-open');
     lightbox.setAttribute('aria-hidden', 'true');
+    startCycle();
   }
 
   closeButton.addEventListener('click', closeLightbox);
