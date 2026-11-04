@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PlayStation 4 Game | Carlton Hague</title>
+  <meta name="description" content="A C++ PlayStation 4 game optimised over 12 weeks using SIMD and data-oriented design as part of a hardware and software optimisation module.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header compact">
+  <div class="wrap">
+    <a class="name" href="../index.html">Carlton Hague</a>
+    <a href="../index.html">All projects</a>
+  </div>
+</header>
+
+<main class="wrap project">
+  <h1>PlayStation 4 Game</h1>
+  <p class="summary">A C++ game for PlayStation 4, improved over 12 weeks as part of a hardware and software optimisation module. The project focused on making an existing game codebase more efficient through SIMD and data-oriented design.</p>
+
+  <dl class="facts">
+    <div><dt>Role</dt><dd>Codebase cleanup and performance optimisation</dd></div>
+    <div><dt>Tools</dt><dd>C++, Intel intrinsics</dd></div>
+    <div><dt>Platform</dt><dd>PlayStation 4</dd></div>
+    <div><dt>Timeframe</dt><dd>12 weeks</dd></div>
+  </dl>
+
+  <section class="prose">
+    <h2>About the project</h2>
+    <p>Completed as part of a hardware and software optimisation module, this project involved working with a supplied game codebase and improving its poorly optimised systems. Rather than starting from scratch, we had to understand, clean up, and optimise existing code while preserving the game’s behaviour. This gave me experience managing and working effectively within an established codebase.</p>
+
+    <h2>What I worked on</h2>
+    <ul>
+      <li>I used SIMD with Intel intrinsic registers to optimise update operations and matrix multiplication.</li>
+      <li>I reworked the game’s object handling into a data-oriented design (DOD), storing objects in memory-aligned arrays managed by a single class.</li>
+      <li>This layout improved data locality during the main game loop, helping cache hits and reducing cache misses.</li>
+      <li>I cleaned up and optimised the supplied code, developing my ability to understand, manage, and make changes within an existing codebase.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><a href="../index.html">Back to all projects</a></div>
+</footer>
+</body>
+</html>
